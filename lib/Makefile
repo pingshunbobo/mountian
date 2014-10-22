@@ -1,11 +1,11 @@
 INCLUDE= -I ../include
 
-libhttp.a: csapp.o cpu_time.o threadpool.o locker.o
-	ar rv  $@ csapp.o cpu_time.o threadpool.o locker.o
+libhttp.a: syscall.o cpu_time.o threadpool.o locker.o
+	ar rv  $@ syscall.o cpu_time.o threadpool.o locker.o 
 	ranlib $@
 
-csapp.o: csapp.c
-	gcc -c csapp.c $(INCLUDE)
+syscall.o: syscall.c
+	gcc -c syscall.c $(INCLUDE)
 
 locker.o: locker.c
 	gcc -c locker.c $(INCLUDE)

@@ -21,6 +21,8 @@
 #include <errno.h>
 #include <stdbool.h>
 
+#include "syscall.h"
+
 #define  FILENAME_LEN     200
 #define  READ_BUFFER_SIZE 2048
 #define  WRITE_BUFFER_SIZE 1024
@@ -71,6 +73,8 @@ struct http_conn
 
 extern int epollfd;
 extern int user_count;
+
+void addfd( int epollfd, int fd, bool one_shot );
 void http_close_conn(struct http_conn * cli );
 void http_init(struct http_conn * users, int http_connfd,\
 			struct sockaddr_in client_addr);

@@ -1,0 +1,1 @@
+void daemon_init();

@@ -1,6 +1,6 @@
 #include "threadpool.h"
 
-pthread_mutex_t request_chain_mutex;
+pthread_mutex_t request_chain_mutex = PTHREAD_MUTEX_INITIALIZER;
 sem_t 		have_request_sem;
 
 struct queue_node
@@ -11,12 +11,12 @@ struct queue_node
 };
 struct threadpool
 {
-    int thread_number;
-    int max_requests;
-    int now_requests;
-    pthread_t* m_threads;
-    struct queue_node * conn_queue_front;
-    struct queue_node * conn_queue_rear;
+	int thread_number;
+	int max_requests;
+	int now_requests;
+	pthread_t* m_threads;
+	struct queue_node * conn_queue_front;
+	struct queue_node * conn_queue_rear;
 } threadpool_data;
 
 void push_queue(struct http_conn * one_http)

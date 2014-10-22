@@ -5,7 +5,7 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdbool.h>
-#include "csapp.h"
+#include "syscall.h"
 
 void init_sem(sem_t *m_sem);
 void del_sem(sem_t * m_sem);

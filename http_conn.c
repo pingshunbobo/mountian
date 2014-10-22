@@ -381,7 +381,7 @@ enum HTTP_CODE do_request(struct http_conn * cli)
     {
         return BAD_REQUEST;
     }
-    *file_d = Open (real_file,O_RDONLY|O_NONBLOCK);
+    *file_d = Open (real_file,O_RDONLY|O_NONBLOCK,0);
 
     cli->r_file.c_file_stat = file_stat;
     return FILE_REQUEST;

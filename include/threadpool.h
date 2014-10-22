@@ -7,7 +7,6 @@
 #include <stdbool.h>
 #include "locker.h"
 #include "http_conn.h"
-#include "csapp.h"
 
 void push_queue(struct http_conn * one_http);
 void pop_queue();

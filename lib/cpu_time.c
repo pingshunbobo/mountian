@@ -1,7 +1,7 @@
 //#include	"unp.h"
-#include 	"pr_cpu_time.h"
+#include 	"cpu_time.h"
 #include	<signal.h>
-void pr_cpu_time(int a)
+void cpu_time(int a)
 {
 	double			user, sys;
 	struct rusage	myusage, childusage;

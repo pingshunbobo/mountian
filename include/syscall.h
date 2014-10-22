@@ -1,6 +1,6 @@
 /* $begin csapp.h */
-#ifndef __CSAPP_H__
-#define __CSAPP_H__
+#ifndef __SYSCALL_H__
+#define __SYSCALL_H__
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,6 +13,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <sys/epoll.h>
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <errno.h>
@@ -95,7 +96,9 @@ int Select(int  n, fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
 int Dup2(int fd1, int fd2);
 void Stat(const char *filename, struct stat *buf);
 void Fstat(int fd, struct stat *buf) ;
-
+int Epoll_create();
+void Epoll_ctl(int epfd,int op,int fd,struct epoll_event *event);
+int Epoll_wait(int epfd,struct epoll_event* event,int maxnum,int timeout);
 /* Memory mapping wrappers */
 void *Mmap(void *addr, size_t len, int prot, int flags, int fd, off_t offset);
 void Munmap(void *start, size_t length);
@@ -166,5 +169,5 @@ int open_listenfd(int portno);
 int Open_clientfd(char *hostname, int port);
 int Open_listenfd(int port); 
 
-#endif /* __CSAPP_H__ */
-/* $end csapp.h */
+#endif /* __SYSCALL_H__ */
+/* $end syscall.h */
